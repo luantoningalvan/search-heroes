@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout";
 import { api } from "../../services/api";
 import { HeroBackground } from "./HeroBackground";
+import { HeroComicsList } from "./HeroComicsList";
 import { HeroHeader } from "./HeroHeader";
 import { HeroInfo } from "./HeroInfo";
 
@@ -39,6 +40,8 @@ export const HeroPage = () => {
             />
             <HeroBackground info={data} />
           </div>
+
+          <HeroComicsList comics={comics} />
         </Layout>
       )}
     </div>
