@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout";
+import { Loader } from "../../components/Loader";
 import { api } from "../../services/api";
 import { HeroBackground } from "./HeroBackground";
 import { HeroComicsList } from "./HeroComicsList";
@@ -43,7 +44,7 @@ export const HeroPage = () => {
     <Layout>
       <HeroHeader />
       {loading ? (
-        <div>carregando</div>
+        <Loader />
       ) : error ? (
         <HeroError error={error} />
       ) : (
