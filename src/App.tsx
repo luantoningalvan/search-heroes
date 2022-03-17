@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { ShowcasePage } from "./pages/ShowCase";
 import { HeroPage } from "./pages/Hero";
+import { FavoritesProvider } from "./contexts/FavoritesContext";
 
 const globalStyles = globalCss({
   "*": { margin: 0, padding: 0 },
@@ -17,12 +18,14 @@ function App() {
   globalStyles();
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ShowcasePage />} />
-        <Route path="/hero/:id" element={<HeroPage />} />
-      </Routes>
-    </BrowserRouter>
+    <FavoritesProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ShowcasePage />} />
+          <Route path="/hero/:id" element={<HeroPage />} />
+        </Routes>
+      </BrowserRouter>
+    </FavoritesProvider>
   );
 }
 
