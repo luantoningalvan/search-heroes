@@ -1,9 +1,10 @@
 import { Layout } from "../../components/Layout";
+import { ShowcaseHeader } from "./ShowcaseHeader";
 
 export const ShowcasePage = () => {
   return (
-    <div>
-      <Layout>Showcase</Layout>
-    </div>
+    <Layout>
+      <ShowcaseHeader />
+    </Layout>
   );
 };
