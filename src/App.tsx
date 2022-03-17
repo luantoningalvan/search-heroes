@@ -1,8 +1,8 @@
 import { globalCss } from "@stitches/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-const ShowCasePage = () => <p>Showcase</p>;
-const HeroPage = () => <p>Hero</p>;
+import { ShowcasePage } from "./pages/ShowCase";
+import { HeroPage } from "./pages/Hero";
 
 const globalStyles = globalCss({
   "*": { margin: 0, padding: 0 },
@@ -19,7 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ShowCasePage />} />
+        <Route path="/" element={<ShowcasePage />} />
         <Route path="/hero/:id" element={<HeroPage />} />
       </Routes>
     </BrowserRouter>
