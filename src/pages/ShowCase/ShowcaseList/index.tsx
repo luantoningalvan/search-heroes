@@ -22,7 +22,6 @@ export const ShowcaseList = () => {
               key={hero.id}
               hero={{
                 id: hero.id,
-                favorited: false,
                 imageUrl: `${hero.thumbnail.path}/standard_xlarge.${hero.thumbnail.extension}`,
                 name: hero.name,
               }}

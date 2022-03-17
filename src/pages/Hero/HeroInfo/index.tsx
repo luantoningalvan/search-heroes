@@ -10,17 +10,27 @@ interface HeroInfoProps {
     comics: {
       available: number;
     };
+    thumbnail: {
+      path: string;
+      extension: string;
+    };
   };
   lastComicPubDate: Date;
 }
 
 export const HeroInfo = ({ info, lastComicPubDate }: HeroInfoProps) => {
-  console.log(lastComicPubDate);
   return (
     <Container>
       <Top>
         <Title>{info.name}</Title>
-        <FavoriteButton id={Number(info.id)} size="lg" />
+        <FavoriteButton
+          hero={{
+            id: info.id,
+            name: info.name,
+            imageUrl: `${info.thumbnail.path}/standard_xlarge.${info.thumbnail.extension}`,
+          }}
+          size="lg"
+        />
       </Top>
       <Description>
         {info.description ||

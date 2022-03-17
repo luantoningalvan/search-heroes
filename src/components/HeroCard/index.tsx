@@ -8,7 +8,6 @@ interface HeroCardProps {
     id: number;
     name: string;
     imageUrl: string;
-    favorited: boolean;
   };
 }
 
@@ -20,7 +19,7 @@ export const HeroCard = memo(({ hero }: HeroCardProps) => {
       </Link>
       <HeroInfo>
         <h4>{hero.name}</h4>
-        <FavoriteButton id={hero.id} />
+        <FavoriteButton hero={hero} />
       </HeroInfo>
     </div>
   );

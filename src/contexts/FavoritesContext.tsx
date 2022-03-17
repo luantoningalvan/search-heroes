@@ -1,9 +1,14 @@
 import React, { createContext, useContext, useCallback, useState } from "react";
 
+export type FavoriteHeroInfo = {
+  id: number;
+  imageUrl: string;
+  name: string;
+};
 interface FavoritesContextData {
   unfavoriteHero: (id: number) => void;
-  favoriteHero: (id: number) => void;
-  favoritesList: { [key: number]: true };
+  favoriteHero: (hero: FavoriteHeroInfo) => void;
+  favoritesList: { [key: number]: FavoriteHeroInfo };
 }
 
 const FavoritesContext = createContext<FavoritesContextData>(
@@ -11,25 +16,25 @@ const FavoritesContext = createContext<FavoritesContextData>(
 );
 
 export const FavoritesProvider: React.FC = ({ children }) => {
-  const [favoritesList, setFavoritesList] = useState<{ [key: number]: true }>(
-    () => {
-      if (!!localStorage.getItem("favorites")) {
-        return JSON.parse(localStorage.getItem("favorites") as string);
-      }
-
-      return {};
+  const [favoritesList, setFavoritesList] = useState<{
+    [key: number]: FavoriteHeroInfo;
+  }>(() => {
+    if (!!localStorage.getItem("favorites")) {
+      return JSON.parse(localStorage.getItem("favorites") as string);
     }
-  );
+
+    return {};
+  });
 
   const favoriteHero = useCallback(
-    (id: number) => {
+    (hero: FavoriteHeroInfo) => {
       if (Object.keys(favoritesList).length < 5) {
         setFavoritesList((curr) => {
           localStorage.setItem(
             "favorites",
-            JSON.stringify({ ...curr, [id]: true })
+            JSON.stringify({ ...curr, [hero.id]: hero })
           );
-          return { ...curr, [id]: true };
+          return { ...curr, [hero.id]: hero };
         });
       }
     },
