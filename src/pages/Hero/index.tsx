@@ -2,7 +2,9 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout";
 import { api } from "../../services/api";
+import { HeroBackground } from "./HeroBackground";
 import { HeroHeader } from "./HeroHeader";
+import { HeroInfo } from "./HeroInfo";
 
 export const HeroPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -30,6 +32,13 @@ export const HeroPage = () => {
       {!loading && (
         <Layout>
           <HeroHeader />
+          <div style={{ display: "flex", margin: "6em 0" }}>
+            <HeroInfo
+              info={data}
+              lastComicPubDate={new Date(comics[0]?.dates[0]?.date)}
+            />
+            <HeroBackground info={data} />
+          </div>
         </Layout>
       )}
     </div>
