@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ShowcasePage } from "./pages/ShowCase";
 import { HeroPage } from "./pages/Hero";
 import { FavoritesProvider } from "./contexts/FavoritesContext";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 const globalStyles = globalCss({
   "*": { margin: 0, padding: 0 },
@@ -20,6 +21,7 @@ function App() {
   return (
     <FavoritesProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<ShowcasePage />} />
           <Route path="/hero/:id" element={<HeroPage />} />
