@@ -11,6 +11,8 @@ export const ShowcaseList = () => {
     fetchHeroes();
   }, [filters]);
 
+  console.log(characters);
+
   return (
     <>
       {!loading && characters.total === 0 ? (
@@ -18,14 +20,7 @@ export const ShowcaseList = () => {
       ) : (
         <ListGrid>
           {characters.results.map((hero) => (
-            <HeroCard
-              key={hero.id}
-              hero={{
-                id: hero.id,
-                imageUrl: `${hero.thumbnail.path}/standard_xlarge.${hero.thumbnail.extension}`,
-                name: hero.name,
-              }}
-            />
+            <HeroCard key={hero.id} hero={hero} />
           ))}
         </ListGrid>
       )}

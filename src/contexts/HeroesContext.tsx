@@ -8,14 +8,12 @@ import React, {
 import { useLocation } from "react-router-dom";
 import { useQuery } from "../hooks/useQuery";
 import { api } from "../services/api";
+import { useFavorites } from "./FavoritesContext";
 
 export type Character = {
   id: number;
   name: string;
-  thumbnail: {
-    path: string;
-    extension: string;
-  };
+  imageUrl: string;
 };
 
 export type Filters = {
@@ -45,6 +43,7 @@ const HeroesContext = createContext<HeroesContextData>({} as HeroesContextData);
 export const HeroesProvider: React.FC = ({ children }) => {
   const query = useQuery();
   const search = query.get("search");
+  const { favoritesList } = useFavorites();
 
   const [characters, setCharacters] = useState<CharactersResponse>({
     count: 0,
@@ -62,16 +61,51 @@ export const HeroesProvider: React.FC = ({ children }) => {
 
   const fetchHeroes = useCallback(async () => {
     setLoading(true);
-    const orderBy = filters.alphabeticalOrder ? "name" : "modified";
-    const fetchHeroes = await api.get("characters", {
-      params: {
-        orderBy,
-        ...(!!search && { nameStartsWith: filters.search }),
-      },
-    });
-    setCharacters(fetchHeroes.data.data);
+
+    if (filters.onlyFavorites) {
+      let favoritesListToArray = Object.values(favoritesList);
+
+      if (!!search) {
+        favoritesListToArray = favoritesListToArray.filter((favorite) =>
+          favorite.name
+            .toLocaleUpperCase()
+            .startsWith(filters.search?.toUpperCase() as string)
+        );
+      }
+
+      if (filters.alphabeticalOrder) {
+        favoritesListToArray = favoritesListToArray.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+      }
+
+      setCharacters({
+        count: favoritesListToArray.length,
+        limit: 5,
+        offset: 0,
+        results: favoritesListToArray,
+        total: favoritesListToArray.length,
+      });
+    } else {
+      const orderBy = filters.alphabeticalOrder ? "name" : "modified";
+      const fetchHeroes = await api.get("characters", {
+        params: {
+          orderBy,
+          ...(!!search && { nameStartsWith: filters.search }),
+        },
+      });
+      setCharacters({
+        ...fetchHeroes.data.data,
+        results: fetchHeroes.data.data.results.map((val: any) => ({
+          id: val.id,
+          name: val.name,
+          imageUrl: `${val.thumbnail.path}/standard_xlarge.${val.thumbnail.extension}`,
+        })),
+      });
+    }
+
     setLoading(false);
-  }, [filters, search]);
+  }, [filters, favoritesList, search]);
 
   const updateFilters = useCallback((changedFilters: Partial<Filters>) => {
     setFilters((curr) => ({
