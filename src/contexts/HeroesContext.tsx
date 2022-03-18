@@ -20,6 +20,7 @@ export type Filters = {
   alphabeticalOrder: boolean;
   onlyFavorites: boolean;
   search?: string;
+  page: number;
 };
 
 type CharactersResponse = {
@@ -57,6 +58,7 @@ export const HeroesProvider: React.FC = ({ children }) => {
     alphabeticalOrder: true,
     onlyFavorites: false,
     search: search || undefined,
+    page: 1,
   });
 
   const fetchHeroes = useCallback(async () => {
@@ -91,17 +93,22 @@ export const HeroesProvider: React.FC = ({ children }) => {
       const fetchHeroes = await api.get("characters", {
         params: {
           orderBy,
+          offset: (filters.page - 1) * 20,
           ...(!!search && { nameStartsWith: filters.search }),
         },
       });
-      setCharacters({
+
+      const mapResults = fetchHeroes.data.data.results.map((val: any) => ({
+        id: val.id,
+        name: val.name,
+        imageUrl: `${val.thumbnail.path}/standard_xlarge.${val.thumbnail.extension}`,
+      }));
+
+      setCharacters((curr) => ({
         ...fetchHeroes.data.data,
-        results: fetchHeroes.data.data.results.map((val: any) => ({
-          id: val.id,
-          name: val.name,
-          imageUrl: `${val.thumbnail.path}/standard_xlarge.${val.thumbnail.extension}`,
-        })),
-      });
+        results:
+          filters.page > 1 ? [...curr.results, ...mapResults] : mapResults,
+      }));
     }
 
     setLoading(false);

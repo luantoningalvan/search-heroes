@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { forwardRef, memo } from "react";
 import { Link } from "react-router-dom";
 import { FavoriteButton } from "../FavoriteButton";
 import { HeroImage, HeroInfo, SkeletonContainer } from "./styles";
@@ -11,9 +11,9 @@ interface HeroCardProps {
   };
 }
 
-export const HeroCard = memo(({ hero }: HeroCardProps) => {
+export const HeroCard = forwardRef<any, HeroCardProps>(({ hero }, ref) => {
   return (
-    <div>
+    <div ref={ref}>
       <Link to={`/hero/${hero.id}`}>
         <HeroImage loading="lazy" src={hero.imageUrl} alt={hero.name} />
       </Link>
