@@ -21,7 +21,7 @@ export const ShowcaseFilters = () => {
           <ToggleSwitch
             checked={filters.alphabeticalOrder}
             onChange={(e) =>
-              updateFilters({ alphabeticalOrder: e.target.checked })
+              updateFilters({ alphabeticalOrder: e.target.checked, page: 1 })
             }
             type="checkbox"
           />
@@ -30,7 +30,7 @@ export const ShowcaseFilters = () => {
         <OnlyFavoritesFilter
           active={filters.onlyFavorites}
           onClick={() =>
-            updateFilters({ onlyFavorites: !filters.onlyFavorites })
+            updateFilters({ onlyFavorites: !filters.onlyFavorites, page: 1 })
           }
         >
           <Icon name="heart" size={28} />

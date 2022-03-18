@@ -94,7 +94,7 @@ export const HeroesProvider: React.FC = ({ children }) => {
         params: {
           orderBy,
           offset: (filters.page - 1) * 20,
-          ...(!!search && { nameStartsWith: filters.search }),
+          ...(!!filters.search && { nameStartsWith: filters.search }),
         },
       });
 
@@ -120,12 +120,6 @@ export const HeroesProvider: React.FC = ({ children }) => {
       ...changedFilters,
     }));
   }, []);
-
-  useEffect(() => {
-    if (!!search && filters.search !== search) {
-      updateFilters({ search });
-    }
-  }, [search]);
 
   return (
     <HeroesContext.Provider

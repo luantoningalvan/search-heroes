@@ -1,19 +1,21 @@
 import { useCallback, useState } from "react";
 import { Icon } from "../Icon";
 import { SearchBox, SearchIcon, SearchInput } from "./styles";
-import { useNavigate } from "react-router-dom";
 import { useQuery } from "../../hooks/useQuery";
 
-export const Search = (props?: any) => {
+export interface SearchProps {
+  onSearch?: (text: string) => void;
+  [key: string]: unknown;
+}
+export const Search = (props: SearchProps) => {
   const [text, setText] = useState("");
-  const navigate = useNavigate();
   const query = useQuery();
   const search = query.get("search");
 
   const handleKeyPress = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Enter") {
-        navigate(`/?search=${text}`);
+        typeof props.onSearch === "function" && props.onSearch(text);
       }
     },
     [text]

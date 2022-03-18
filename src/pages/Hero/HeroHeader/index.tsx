@@ -1,15 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../../assets/logoSingleHero.svg";
-import { Header, CustomSearch } from "./styles";
+import { Search } from "../../../components/Search";
+import { Header } from "./styles";
 
 export const HeroHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <Header>
       <Link to="/">
         <img src={Logo} alt="" />
       </Link>
 
-      <CustomSearch />
+      <Search
+        css={{
+          maxWidth: 400,
+
+          "> div": {
+            height: 48,
+          },
+          input: {
+            height: 48,
+          },
+        }}
+        onSearch={(text) => {
+          navigate(!!text ? `/?search=${text}` : "/");
+        }}
+      />
     </Header>
   );
 };
