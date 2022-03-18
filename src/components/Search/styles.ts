@@ -1,4 +1,4 @@
-import { styled } from "@stitches/react";
+import { styled } from "../../stitches.config";
 
 export const SearchBox = styled("div", {
   position: "relative",
@@ -18,7 +18,7 @@ export const SearchInput = styled("input", {
   fontSize: "1rem",
   color: "#f00",
   "&::placeholder": {
-    color: "#FA7C7C",
+    color: "#fa7676",
   },
 });
 

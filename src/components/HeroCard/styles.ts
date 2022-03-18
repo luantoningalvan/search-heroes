@@ -1,4 +1,4 @@
-import { styled, keyframes } from "@stitches/react";
+import { styled, keyframes } from "../../stitches.config";
 
 export const HeroImage = styled("img", {
   borderBottom: "4px solid #f00",

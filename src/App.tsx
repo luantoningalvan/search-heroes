@@ -1,4 +1,4 @@
-import { globalCss } from "@stitches/react";
+import { globalCss } from "./stitches.config";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { ShowcasePage } from "./pages/ShowCase";

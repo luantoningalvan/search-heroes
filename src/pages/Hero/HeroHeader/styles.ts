@@ -1,4 +1,4 @@
-import { styled } from "@stitches/react";
+import { styled } from "../../../stitches.config";
 import { Search } from "../../../components/Search";
 
 export const Header = styled("header", {

@@ -1,4 +1,4 @@
-import { styled } from "@stitches/react";
+import { styled } from "../../../stitches.config";
 
 export const Bar = styled("div", {
   display: "flex",
@@ -77,7 +77,7 @@ export const OnlyFavoritesFilter = styled("button", {
   variants: {
     active: {
       true: {
-        background: "rgb(253, 236, 236)",
+        background: "#fdecec",
         color: "#f00",
         borderColor: "#f00",
         "& svg": {

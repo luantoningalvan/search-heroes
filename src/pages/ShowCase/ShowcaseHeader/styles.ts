@@ -1,4 +1,4 @@
-import { styled } from "@stitches/react";
+import { styled } from "../../../stitches.config";
 
 export const Header = styled("header", {
   display: "flex",
@@ -18,5 +18,5 @@ export const Description = styled("p", {
   marginBottom: "2em",
   display: "block",
   fontSize: "1rem",
-  color: "#919191",
+  color: "#9e9e9e",
 });
