@@ -8,7 +8,7 @@ export const SearchBox = styled("div", {
 
 export const SearchInput = styled("input", {
   width: "100%",
-  background: "#FDECEC",
+  background: "$red50",
   height: 64,
   borderRadius: 32,
   padding: 16,
@@ -16,9 +16,9 @@ export const SearchInput = styled("input", {
   boxSizing: "border-box",
   border: "none",
   fontSize: "1rem",
-  color: "#f00",
+  color: "$red500",
   "&::placeholder": {
-    color: "#fa7676",
+    color: "$red200",
   },
 });
 
@@ -30,5 +30,5 @@ export const SearchIcon = styled("div", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  color: "#f00",
+  color: "$red500",
 });

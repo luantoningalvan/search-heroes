@@ -7,7 +7,7 @@ export const Button = styled("button", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  color: "#f00",
+  color: "$red500",
   borderRadius: "50%",
   flexGrow: 0,
   flexShrink: 0,

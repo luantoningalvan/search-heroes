@@ -13,7 +13,7 @@ export const Bar = styled("div", {
 });
 
 export const Results = styled("span", {
-  color: "#9e9e9e",
+  color: "$gray400",
   fontSize: "1rem",
 });
 
@@ -22,7 +22,7 @@ export const ToggleSwitch = styled("input", {
   width: 60,
   height: 30,
   appearance: "none",
-  background: "#e4e5e9",
+  background: "$gray100",
   borderRadius: 15,
   transition: ".5s",
   cursor: "pointer",
@@ -36,7 +36,7 @@ export const ToggleSwitch = styled("input", {
     top: 0,
     left: 0,
     transform: "scale(0.7)",
-    background: "#f00",
+    background: "$red500",
     boxShadow: "0px 3px 8px rgba(225, 0, 0, 0.6)",
     transition: ".5s",
   },
@@ -49,19 +49,19 @@ export const AlphabeticalOrderFilter = styled("div", {
   display: "flex",
   alignItems: "center",
   "& span": {
-    color: "#fa7676",
+    color: "$red200",
     margin: "0 1em 0 0.5em",
     fontSize: "0.9rem",
   },
   "& svg": {
-    color: "#f00",
+    color: "$red500",
   },
 });
 
 export const OnlyFavoritesFilter = styled("button", {
   display: "flex",
   alignItems: "center",
-  color: "#fa7676",
+  color: "$red200",
   fontSize: "0.9rem",
   background: "transparent",
   cursor: "pointer",
@@ -71,17 +71,17 @@ export const OnlyFavoritesFilter = styled("button", {
   borderRadius: 15,
   border: "1px solid transparent",
   "& svg": {
-    color: "#f00",
+    color: "$red500",
   },
 
   variants: {
     active: {
       true: {
-        background: "#fdecec",
-        color: "#f00",
-        borderColor: "#f00",
+        background: "$red50",
+        color: "$red500",
+        borderColor: "$red500",
         "& svg": {
-          color: "#f00",
+          color: "$red500",
         },
       },
     },

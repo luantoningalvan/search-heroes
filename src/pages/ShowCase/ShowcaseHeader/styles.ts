@@ -18,5 +18,5 @@ export const Description = styled("p", {
   marginBottom: "2em",
   display: "block",
   fontSize: "1rem",
-  color: "#9e9e9e",
+  color: "$gray400",
 });

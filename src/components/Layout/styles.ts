@@ -9,13 +9,13 @@ export const Main = styled("main", {
 
 export const Footer = styled("footer", {
   width: "100%",
-  background: "#f00",
+  background: "$red500",
   textAlign: "center",
   padding: "2rem",
   boxSizing: "border-box",
 
   "& a": {
-    color: "#fff",
+    color: "$white",
     textDecoration: "none",
   },
 });

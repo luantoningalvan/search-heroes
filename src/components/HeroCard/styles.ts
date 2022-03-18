@@ -1,7 +1,7 @@
 import { styled, keyframes } from "../../stitches.config";
 
 export const HeroImage = styled("img", {
-  borderBottom: "4px solid #f00",
+  borderBottom: "4px solid $red500",
   width: "100%",
   height: "auto",
 });
@@ -13,7 +13,7 @@ export const HeroInfo = styled("div", {
   marginTop: "1em",
   "& h4": {
     fontSize: "1.1rem",
-    color: "#404040",
+    color: "$gray700",
   },
 });
 

@@ -13,13 +13,13 @@ export const Comic = styled("div", {
   },
   h5: {
     fontSize: "0.9rem",
-    color: "#333",
+    color: "$gray500",
     marginTop: "0.5em",
   },
 });
 
 export const Title = styled("h4", {
   fontSize: "1rem",
-  color: "#333",
+  color: "$gray500",
   marginBottom: "1em",
 });

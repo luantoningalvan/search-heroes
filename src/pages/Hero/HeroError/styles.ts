@@ -12,12 +12,12 @@ export const Container = styled("div", {
   "& p": {
     marginTop: "1em",
     fontSize: "1rem",
-    color: "#333",
+    color: "$gray500",
   },
   "& a": {
     display: "block",
     textDecoration: "none",
-    color: "#f00",
+    color: "$red500",
     marginTop: "2em",
   },
 });

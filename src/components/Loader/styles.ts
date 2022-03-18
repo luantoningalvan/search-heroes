@@ -19,7 +19,7 @@ const spin = keyframes({
 export const Circle = styled("div", {
   height: 48,
   width: 48,
-  border: "5px solid #f00",
+  border: "5px solid $red500",
   borderRightColor: "transparent",
   borderRadius: "50%",
   animation: `${spin} .75s linear infinite`,

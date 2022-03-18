@@ -22,7 +22,7 @@ export const Top = styled("div", {
 
 export const Description = styled("p", {
   fontSize: "1rem",
-  color: "#333",
+  color: "$gray500",
   lineHeight: "200%",
 });
 
@@ -31,7 +31,7 @@ export const InfoWithIcon = styled("div", {
     display: "block",
     fontWeight: "bold",
     fontSize: "0.9rem",
-    color: "#333",
+    color: "$gray500",
     marginBottom: "0.3em",
   },
   "> div": {
@@ -40,6 +40,6 @@ export const InfoWithIcon = styled("div", {
     gap: "0.5em",
   },
   svg: {
-    color: "#f00",
+    color: "$red500",
   },
 });
