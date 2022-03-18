@@ -2,8 +2,21 @@ import { styled } from "../../../stitches.config";
 
 export const Grid = styled("div", {
   display: "grid",
-  gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
-  gap: "1.5em",
+  gridTemplateColumns: "1fr",
+  gap: "1em",
+  "@xs": {
+    gridTemplateColumns: "repeat(2,1fr)",
+  },
+  "@sm": {
+    gridTemplateColumns: "repeat(3,1fr)",
+  },
+  "@md": {
+    gridTemplateColumns: "repeat(4,1fr)",
+    gap: "1.5em",
+  },
+  "@lg": {
+    gridTemplateColumns: "repeat(5,1fr)",
+  },
 });
 
 export const Comic = styled("div", {

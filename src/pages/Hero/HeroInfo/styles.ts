@@ -2,6 +2,7 @@ import { styled } from "../../../stitches.config";
 
 export const Container = styled("div", {
   maxWidth: 400,
+  width: "100%",
   display: "flex",
   flexDirection: "column",
   gap: "2rem",

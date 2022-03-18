@@ -8,6 +8,7 @@ import { HeroComicsList } from "./HeroComicsList";
 import { HeroError } from "./HeroError";
 import { HeroHeader } from "./HeroHeader";
 import { HeroInfo } from "./HeroInfo";
+import { HeroDataContainer } from "./styles";
 
 export type ErrorObject = {
   code: number;
@@ -49,13 +50,13 @@ export const HeroPage = () => {
         <HeroError error={error} />
       ) : (
         <>
-          <div style={{ display: "flex", margin: "6em 0" }}>
+          <HeroDataContainer>
             <HeroInfo
               info={data}
               lastComicPubDate={new Date(comics[0]?.dates[0]?.date)}
             />
             <HeroBackground info={data} />
-          </div>
+          </HeroDataContainer>
 
           <HeroComicsList comics={comics} />
         </>

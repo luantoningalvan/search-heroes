@@ -23,6 +23,7 @@ export const {
     },
   },
   media: {
+    xs: "(min-width: 375px)",
     sm: "(min-width: 576px)",
     md: "(min-width: 768px)",
     lg: "(min-width: 992px)",

@@ -3,8 +3,14 @@ import { Search } from "../../../components/Search";
 
 export const Header = styled("header", {
   display: "flex",
-  justifyContent: "space-between",
+  flexDirection: "column",
+  justifyContent: "center",
   alignItems: "center",
+  gap: "1em",
+  "@md": {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 });
 
 export const CustomSearch = styled(Search, {
