@@ -5,10 +5,21 @@ export const Bar = styled("div", {
   justifyContent: "space-between",
   alignItems: "center",
   marginTop: "3em",
+  flexDirection: "column-reverse",
+  gap: "1rem",
+
+  "@sm": {
+    flexDirection: "row",
+  },
+
   "&>div": {
     display: "flex",
     gap: "1em",
     alignItems: "center",
+    flexDirection: "column",
+    "@md": {
+      flexDirection: "row",
+    },
   },
 });
 

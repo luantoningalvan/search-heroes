@@ -5,9 +5,7 @@ import { Description, Header, Title } from "./styles";
 export const ShowcaseHeader = () => {
   return (
     <Header>
-      <div>
-        <img src={LogoShowcase} alt="" />
-      </div>
+      <img src={LogoShowcase} alt="" />
       <Title>Explore o universo</Title>
       <Description>
         Mergulhe no domínio deslumbrante de todos personagens clássicos que você
